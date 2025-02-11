@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+<div class="features" style="text-align: center;">
+    <h1>Клиент</h1>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зарегистрировать заказчика</button>
+</form>
+</div>
+{% endblock %}
+
+{% block title %}Клиента{% endblock %}

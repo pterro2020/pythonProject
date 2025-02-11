@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'ProcatCar/css/ProcatCar.css' %}">
+</head>
+<body>
+<aside>
+    <img src="{% static 'ProcatCar/img/carlogo.png' %}" alt="Лого">
+    <span class="logo">ProcatCar</span>
+    <h1>Прокат автомобилей</h1>
+    <h3>Навигация</h3>
+    <ul>
+        <a href="{% url 'index' %}"><li>Главная</li></a>
+        <a href="{% url 'about' %}"><li>Про нас</li></a>
+        <a href="{% url 'contacts' %}"><li>Контакты</li></a>
+        <a href="{% url 'feedback' %}"><li>Отзывы</li></a>
+        <a href="{% url 'news' %}"><li>Новости</li></a>
+        <a href="{% url 'sales' %}"><li>Промокоды и купоны</li></a>
+        <a href="{% url 'vac' %}"><li>Вакансии</li></a>
+        <a href="{% url 'slovar' %}"><li>Словарь</li></a>
+        
+        {% if request.user.is_authenticated %}
+            {% if is_seller %}
+                <a href="{% url 'add_car' %}"><li>Добавить автомобиль</li></a>
+                <a href="{% url 'add_mark' %}"><li>Добавить марку</li></a>
+                <a href="{% url 'foradmin' %}"><li>Для админа</li></a>
+            {% endif %}
+            <a href="{% url 'car' %}"><li>Список автомобилей</li></a>
+            <a href="{% url 'order_list' %}"><li>Забронированные автомобили</li></a>
+            <a href="{% url 'add_feedback' %}"><li>Оставить отзыв</li></a>
+            <a href="{% url 'filter' %}"><li>Фильтр моделей автомобилей</li></a>
+            <a href="{% url 'search' %}"><li>Поиск автомобилей</li></a>
+            <a href="{% url 'shtraf' %}"><li>Штрафы</li></a>
+            <li class="last">{{ user.username }}</li>
+            <li><a href="{% url 'logout' %}">Выйти</a></li>
+        {% else %}
+            <a href="{% url 'custom' %}"><li>Клиент</li></a>
+            <a href="{% url 'sell' %}"><li>Администратор</li></a>
+
+            <a href="{% url 'login' %}"><li>Авторизация</li></a>
+        {% endif %}
+    </ul>
+</aside>
+<main>
+    {% block urlContent %}
+    {% endblock %}
+</main>
+</body>
+</html>
+
+

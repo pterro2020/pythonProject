@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+    <div class="features" style="text-align: center;">
+        <h1>Доступные автомобили</h1>
+        {% for c in car %}
+            <div class="alert" style="display: inline-block; text-align: left;">
+                <h3>Марка: {{ c.mark }}</h3>
+                <p>model: {{ c.model }}</p>
+                <p>Цена: {{ c.price }}</p>
+                <a href="{% url 'add_to_bron' c.id %}" class="btn btn-warning">В заказ</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block title %}Новости{% endblock %}

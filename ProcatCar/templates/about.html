@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+<div class="features" style="text-align: center;">
+    <h1>О нас</h1>
+    <h2>Самый широкий спектр авто на прокат в РБ</h2><br>
+    {% for about in abouts %}
+    <img width="300" src="{{ about.aboutimg.url }}"></img><br><br>
+        <h2>{{ about.ustext }}</h2>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block title %}О нас{% endblock %}

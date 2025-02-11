@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+    <div class="features" style="text-align: center;">
+    <h1>Отзывы</h1>
+    {% if feedbacks %}
+        {% for feedback in feedbacks %}
+            <div class="alert">
+                <h3>{{ feedback.name }}</h3>
+                <p>Звезд: {{ feedback.rating }} </p>
+                <p>{{ feedback.text }}</p>
+                <p>{{ feedback.dating }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Отзывы не найдены.</p>
+    {% endif %}
+{% endblock %}
+    </div>
+
+{% block title %}Feedback{% endblock %}

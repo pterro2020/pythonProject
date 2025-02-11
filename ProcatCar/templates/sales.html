@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+<div class="features" style="text-align: center;">
+    <h1>Скидки</h1><br><br>
+    {% for sale in sales %}
+        <h2>{{ sale.name }}</h2>
+        <h4>Вы сэкономите: {{ sale.about }} рублей</h4><br><br>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block title %}Скидки{% endblock %}

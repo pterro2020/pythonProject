@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+    <div class="features" style="text-align: center;">
+    <h1>Новости</h1>
+    {% for news in news %}
+        <img width="300" src="{{ news.newsimg.url }}"></img><br><br>
+        <h2>{{ news.newscrat }}</h2>
+        <h4>{{ news.news }}</h4>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block title %}Новости{% endblock %}

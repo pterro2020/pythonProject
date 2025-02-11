@@ -1,0 +1,17 @@
+<!-- templates/add_mark.html -->
+
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+<div class="features" style="text-align: center;">
+    <h1>Добавить марку автомобиля</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block title %}Добавить марку{% endblock %}
+

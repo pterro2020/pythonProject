@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+    <div class="features" style="text-align: center;" >
+        <h1>Оставить отзыв</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div style="width: 100%; text-align: center;">
+                <div style="display: inline-block; width: auto;">
+                    {{ form.rating }}
+                </div>
+            </div>
+            <div>
+                {{ form.text }}
+            </div>
+            <button type="submit">Отправить</button>
+            <span>{{ error }}</span>
+        </form>
+    </div>
+{% endblock %}
+
+{% block title %}Оставить отзыв{% endblock %}
+

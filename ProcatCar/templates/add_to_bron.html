@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+    <div class="features">
+        <h1>Добавить бронирование</h1>
+        <form method="post">
+          {% csrf_token %}
+          <label for="datetime">Дата и время:</label>
+          <input type="datetime-local" id="datetime" name="datetime">
+          <label for="count">Количество часов:</label>  <!-- Added input field for count -->
+          <input type="number" id="count" name="count" min="1" required>  <!-- Ensures count is provided -->
+          <button type="submit">Add</button>
+      </form>
+    </div>
+{% endblock %}
+
+
+{% block title %}Аренда{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+    <div class="features" style="text-align: center;">
+    <h1>Контакты</h1><br><br>
+    {% for contact in contacts %}
+        <img width="200" src="{{ contact.contactimg.url }}"></img>
+        <h3>{{ contact.name }}</h3>
+        <h4>{{ contact.mail }}</h4>
+        <h4>{{ contact.phone_number }}</h4><br><br>
+
+    {% endfor %}
+{% endblock %}
+    </div>
+
+{% block title %}Contacts{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+<div class="features" style="text-align: center;">
+    <p>Московское время: {{ now|date:"d M Y H:i:s" }}</p>
+    <h1>Главная страница</h1>
+    <p>Аренда лучших автомобилей Беларуси</p><br><br>
+    <h4>Наши клиенты котики, поэтому вот ежедневные факты о котах</h4>
+    <p>{{ fact }}</p>
+    <img src="{{ cat_image_url }}" alt="Cute Cat" style="max-width: 20%; height: auto;"/><br><br>
+    <h4>Штука дня</h4>
+    <p>{{ joke }}</p><br><br>
+    <h2>Последняя новость</h2>
+    {% if latest_news %}
+        <h3>{{ latest_news.newscrat }}</h3>
+        <p>{{ latest_news.news }}</p>
+        <img src="{{ latest_news.newsimg.url }}" alt="{{ latest_news.newscrat }}" style="max-width: 10%; height: auto;"/>
+    {% else %}
+        <p>Нет доступных новостей.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block title %}Главная страница{% endblock %}
+
+

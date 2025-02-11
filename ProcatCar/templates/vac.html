@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block urlContent %}
+<div class="features" style="text-align: center;">
+    <h1>Свободные вакансии</h1><br><br>
+    {% for vac in vacs %}
+        <h2>{{ vac.vac }}</h2>
+        <img width="200" src="{{ vac.contactimg.url }}"></img>
+        <h4>{{ vac.vacopis }}</h4><br><br>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
+
+{% block title %}Вакансии{% endblock %}
